@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ config('app.name') }} - @yield('title')</title>
     
-    <!-- Styles -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body>
@@ -13,7 +12,26 @@
         <nav class="container mx-auto px-6 py-3">
             <div class="flex justify-between items-center">
                 <a href="/" class="text-xl font-bold">Restaurant Name</a>
+                
+                <!-- Mobile menu button -->
+                <button id="mobile-menu-button" class="md:hidden">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+
+                <!-- Desktop menu -->
                 <div class="hidden md:flex items-center space-x-8">
+                    <a href="/" class="hover:text-gray-700">Home</a>
+                    <a href="/menu" class="hover:text-gray-700">Menu</a>
+                    <a href="/reservations" class="hover:text-gray-700">Reservations</a>
+                    <a href="/contact" class="hover:text-gray-700">Contact</a>
+                </div>
+            </div>
+
+            <!-- Mobile menu -->
+            <div id="mobile-menu" class="hidden md:hidden mt-4">
+                <div class="flex flex-col space-y-4">
                     <a href="/" class="hover:text-gray-700">Home</a>
                     <a href="/menu" class="hover:text-gray-700">Menu</a>
                     <a href="/reservations" class="hover:text-gray-700">Reservations</a>
