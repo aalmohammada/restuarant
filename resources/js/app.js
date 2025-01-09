@@ -1,6 +1,7 @@
 import './bootstrap';
-
-// Your JavaScript code here
+import Alpine from 'alpinejs';
+window.Alpine = Alpine;
+Alpine.start();
 
 // Mobile menu functionality
 document.addEventListener('DOMContentLoaded', function() {
