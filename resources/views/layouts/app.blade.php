@@ -19,41 +19,21 @@
     <header class="fixed w-full z-50 transition-all duration-300" x-data="{ isScrolled: false }" 
             x-init="window.addEventListener('scroll', () => { isScrolled = window.pageYOffset > 30 })"
             :class="{ 'glass-effect shadow-lg': isScrolled, 'bg-transparent': !isScrolled }">
-        <nav class="container mx-auto px-6 py-6">
+        <nav class="container mx-auto px-6 py-4">
             <div class="flex justify-between items-center">
-                <a href="/" class="text-2xl font-playfair font-bold" :class="{ 'text-white': !isScrolled, 'text-neutral-800': isScrolled }">
-                    <span class="text-gold-500">L'Artisan</span> Restaurant
+                <a href="/" class="flex items-center space-x-2" :class="{ 'text-white': !isScrolled, 'text-neutral-800': isScrolled }">
+                    <img src="/images/damascino-logo.svg" alt="Damascino" class="h-16 w-auto">
+                    <span class="text-2xl font-playfair font-bold">
+                        <span class="text-primary-600">Damascino</span>
+                        <span class="text-sm uppercase tracking-[0.2em] block font-sans">Fine Syrian Cuisine</span>
+                    </span>
                 </a>
                 
-                <!-- Desktop menu -->
-                <div class="hidden md:flex items-center space-x-8">
+                <div class="flex items-center space-x-12">
                     <a href="/" class="nav-link" :class="{ 'text-white': !isScrolled }">Home</a>
                     <a href="/menu" class="nav-link" :class="{ 'text-white': !isScrolled }">Menu</a>
-                    <a href="/reservations" class="nav-link" :class="{ 'text-white': !isScrolled }">Reservations</a>
+                    <a href="/book-table" class="nav-link" :class="{ 'text-white': !isScrolled }">Book a Table</a>
                     <a href="/contact" class="nav-link" :class="{ 'text-white': !isScrolled }">Contact</a>
-                    <a href="/reservations" class="btn-primary">
-                        Book a Table
-                    </a>
-                </div>
-
-                <!-- Mobile menu button -->
-                <button id="mobile-menu-button" class="md:hidden" :class="{ 'text-white': !isScrolled }">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-                    </svg>
-                </button>
-            </div>
-
-            <!-- Mobile menu -->
-            <div id="mobile-menu" class="hidden md:hidden mt-4 rounded-none bg-white p-6 shadow-xl">
-                <div class="flex flex-col space-y-4">
-                    <a href="/" class="mobile-nav-link">Home</a>
-                    <a href="/menu" class="mobile-nav-link">Menu</a>
-                    <a href="/reservations" class="mobile-nav-link">Reservations</a>
-                    <a href="/contact" class="mobile-nav-link">Contact</a>
-                    <a href="/reservations" class="btn-primary w-full text-center mt-4">
-                        Book a Table
-                    </a>
                 </div>
             </div>
         </nav>
