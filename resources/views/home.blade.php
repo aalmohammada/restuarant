@@ -4,28 +4,104 @@
 
 @section('content')
 <!-- Hero Section -->
-<section class="relative h-screen">
+<section class="relative h-screen overflow-hidden">
+    <!-- Background Video with Multiple Layers -->
     <div class="absolute inset-0">
-        <video class="object-cover w-full h-full" autoplay loop muted playsinline>
-            <source src="/videos/restaurant-ambience.mp4" type="video/mp4">
+        <!-- Main Background Image (Fallback and Initial Load) -->
+        <div class="absolute inset-0">
+            <img src="/images/hero-bg.jpg" alt="Damascino Restaurant" 
+                 class="object-cover w-full h-full"
+                 loading="eager">
+        </div>
+
+        <!-- Video Background -->
+        <video class="object-cover w-full h-full opacity-90" 
+               autoplay loop muted playsinline 
+               poster="/images/hero-bg.jpg">
+            <source src="/videos/damascino-ambience.mp4" type="video/mp4">
         </video>
-        <div class="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-transparent">
-            <div class="container mx-auto px-6 h-full flex items-center">
-                <div class="max-w-3xl" data-aos="fade-right">
-                    <h1 class="text-7xl font-playfair font-bold mb-6 text-white leading-tight">
-                        Culinary <span class="text-gold-400">Excellence</span> in Every Detail
-                    </h1>
-                    <p class="text-2xl text-gray-200 mb-12 leading-relaxed">
-                        Experience the perfect harmony of flavors in an atmosphere of timeless elegance
-                    </p>
-                    <div class="flex gap-6">
-                        <a href="/reservations" class="btn-primary group">
-                            <span class="relative z-10">Reserve Your Table</span>
-                        </a>
-                        <a href="/menu" class="btn-outline group">
-                            <span class="relative z-10">Explore Menu</span>
-                        </a>
-                    </div>
+        
+        <!-- Decorative Patterns -->
+        <div class="absolute inset-0">
+            <!-- Traditional Arabic Pattern -->
+            <div class="absolute inset-0 bg-[url('/images/arabic-pattern.svg')] opacity-15 bg-repeat"></div>
+            
+            <!-- Radial Gradient for Depth -->
+            <div class="absolute inset-0 bg-gradient-radial from-black/0 via-black/50 to-black/90"></div>
+        </div>
+        
+        <!-- Main Gradient Overlay -->
+        <div class="absolute inset-0 bg-gradient-to-r from-black/95 via-black/85 to-transparent">
+            <!-- Animated Light Effects -->
+            <div class="absolute inset-0">
+                <div class="absolute top-1/4 left-1/4 w-[300px] h-[300px] bg-primary-500/10 rounded-full mix-blend-overlay filter blur-2xl animate-pulse"></div>
+                <div class="absolute bottom-1/4 right-1/4 w-[250px] h-[250px] bg-secondary-500/10 rounded-full mix-blend-overlay filter blur-2xl animate-pulse animation-delay-2000"></div>
+            </div>
+            
+            <!-- Subtle Texture Overlay -->
+            <div class="absolute inset-0 bg-texture opacity-5 mix-blend-overlay"></div>
+        </div>
+    </div>
+
+    <!-- Content Container -->
+    <div class="relative container-custom h-full flex items-center">
+        <div class="max-w-4xl" data-aos="fade-right">
+            <!-- Decorative Line -->
+            <div class="w-24 h-1 bg-primary-500 mb-8"></div>
+            
+            <!-- Arabic Welcome -->
+            <span class="text-xl text-primary-400 font-arabic mb-4 block">أهلاً وسهلاً</span>
+            
+            <h1 class="text-6xl md:text-7xl lg:text-8xl font-playfair font-bold mb-8 text-white leading-tight">
+                Authentic <span class="text-primary-400">Syrian</span><br/>
+                Culinary Experience
+            </h1>
+            
+            <p class="text-xl md:text-2xl text-gray-300 mb-12 leading-relaxed max-w-2xl">
+                Discover the rich flavors and traditions of Damascus cuisine, 
+                where every dish tells a story of heritage and passion
+            </p>
+            
+            <div class="flex flex-col sm:flex-row gap-6">
+                <a href="/book-table" class="btn-primary group">
+                    <span class="relative z-10">Book Your Table</span>
+                    <svg class="w-5 h-5 ml-2 relative z-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+                    </svg>
+                </a>
+                <a href="/menu" class="btn-outline group">
+                    <span class="relative z-10">Explore Menu</span>
+                    <svg class="w-5 h-5 ml-2 relative z-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                    </svg>
+                </a>
+            </div>
+            
+            <!-- Scroll Indicator -->
+            <div class="absolute bottom-12 left-1/2 transform -translate-x-1/2 flex flex-col items-center animate-bounce">
+                <span class="text-white/60 text-sm uppercase tracking-widest mb-2">Scroll</span>
+                <svg class="w-6 h-6 text-primary-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
+                </svg>
+            </div>
+        </div>
+        
+        <!-- Floating Elements -->
+        <div class="absolute top-1/2 right-10 transform -translate-y-1/2 hidden lg:block">
+            <div class="space-y-8">
+                <!-- Opening Hours -->
+                <div class="bg-white/10 backdrop-blur-md p-6 rounded-lg border border-white/20 text-white">
+                    <h3 class="text-lg font-medium mb-2">Opening Hours</h3>
+                    <p class="text-sm text-gray-300">Tue - Sun: 11:30 AM - 11:00 PM</p>
+                    <p class="text-sm text-primary-400">Closed on Mondays</p>
+                </div>
+                
+                <!-- Quick Contact -->
+                <div class="bg-white/10 backdrop-blur-md p-6 rounded-lg border border-white/20 text-white">
+                    <h3 class="text-lg font-medium mb-2">Reservations</h3>
+                    <a href="tel:+15551234567" class="text-sm text-gray-300 hover:text-primary-400 transition-colors">
+                        +1 (555) 123-4567
+                    </a>
                 </div>
             </div>
         </div>
@@ -37,13 +113,13 @@
     <div class="container mx-auto px-6">
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
             @foreach([
-                ['icon' => 'M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z', 'title' => 'Opening Hours', 'text' => 'Mon-Sun: 11:00 AM - 11:00 PM'],
-                ['icon' => 'M21 15.546c-.523 0-1.046.151-1.5.454a2.704 2.704 0 01-3 0 2.704 2.704 0 00-3 0 2.704 2.704 0 01-3 0 2.704 2.704 0 00-3 0 2.704 2.704 0 01-3 0 2.701 2.701 0 00-1.5-.454M9 6v2m3-2v2m3-2v2M9 3h.01M12 3h.01M15 3h.01M21 21v-7a2 2 0 00-2-2H5a2 2 0 00-2 2v7h18zm-3-9v-2a2 2 0 00-2-2H8a2 2 0 00-2 2v2h12z', 'title' => 'Fine Dining', 'text' => 'Exquisite Culinary Experience'],
+                ['icon' => 'M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z', 'title' => 'Opening Hours', 'text' => 'Tue - Sun: 11:30 AM - 11:00 PM'],
+                ['icon' => 'M21 15.546c-.523 0-1.046.151-1.5.454a2.704 2.704 0 01-3 0 2.704 2.704 0 00-3 0 2.704 2.704 0 01-3 0 2.704 2.704 0 00-3 0 2.701 2.701 0 00-1.5-.454M9 6v2m3-2v2m3-2v2M9 3h.01M12 3h.01M15 3h.01M21 21v-7a2 2 0 00-2-2H5a2 2 0 00-2 2v7h18zm-3-9v-2a2 2 0 00-2-2H8a2 2 0 00-2 2v2h12z', 'title' => 'Fine Dining', 'text' => 'Authentic Syrian Cuisine'],
                 ['icon' => 'M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2', 'title' => 'Reservations', 'text' => 'Book Your Experience']
             ] as $feature)
-            <div class="group p-8 bg-white shadow-lg hover:shadow-xl transition-all duration-500" data-aos="fade-up">
-                <div class="w-16 h-16 mb-6 rounded-full bg-gold-100 flex items-center justify-center group-hover:bg-gold-500 transition-colors duration-500">
-                    <svg class="w-8 h-8 text-gold-600 group-hover:text-white transition-colors duration-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div class="group p-8 bg-white shadow-md hover:shadow-xl transition-all duration-500" data-aos="fade-up">
+                <div class="w-12 h-12 mb-6 rounded-full bg-primary-100 flex items-center justify-center group-hover:bg-primary-600 transition-colors duration-500">
+                    <svg class="w-5 h-5 text-primary-600 group-hover:text-white transition-colors duration-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="{{ $feature['icon'] }}"></path>
                     </svg>
                 </div>
