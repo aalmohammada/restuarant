@@ -13,6 +13,8 @@
     "dependencies": {
         "@headlessui/react": "^2.2.0",
         "@heroicons/react": "^2.2.0",
-        "alpinejs": "^3.14.8"
+        "alpinejs": "^3.14.8",
+        "aos": "^2.3.4",
+        "gsap": "^3.12.5"
     }
 }

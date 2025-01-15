@@ -4,279 +4,159 @@
 
 @section('content')
 <!-- Hero Section -->
-<section class="relative h-screen overflow-hidden">
-    <!-- Background Video with Multiple Layers -->
+<section class="relative h-screen overflow-hidden bg-[#1A0F1E]">
+    <!-- Background Layers -->
     <div class="absolute inset-0">
-        <!-- Main Background Image (Fallback and Initial Load) -->
+        <!-- Deep Background Gradient -->
+        <div class="absolute inset-0 bg-gradient-to-br from-[#1A0F1E] via-[#2A1F3E] to-[#241824]"></div>
+
+        <!-- Colored Overlays -->
         <div class="absolute inset-0">
-            <img src="/images/hero-bg.jpg" alt="Damascino Restaurant" 
-                 class="object-cover w-full h-full"
-                 loading="eager">
+            <!-- Large color areas -->
+            <div class="absolute top-0 right-0 w-full h-full bg-gradient-to-bl from-blue-900/30 via-purple-900/20 to-transparent"></div>
+            <div class="absolute bottom-0 left-0 w-full h-full bg-gradient-to-tr from-amber-900/30 via-red-900/20 to-transparent"></div>
         </div>
 
-        <!-- Video Background -->
-        <video class="object-cover w-full h-full opacity-90" 
-               autoplay loop muted playsinline 
-               poster="/images/hero-bg.jpg">
-            <source src="/videos/damascino-ambience.mp4" type="video/mp4">
-        </video>
-        
-        <!-- Decorative Patterns -->
+        <!-- Glowing Effects -->
         <div class="absolute inset-0">
-            <!-- Traditional Arabic Pattern -->
-            <div class="absolute inset-0 bg-[url('/images/arabic-pattern.svg')] opacity-15 bg-repeat"></div>
-            
-            <!-- Radial Gradient for Depth -->
-            <div class="absolute inset-0 bg-gradient-radial from-black/0 via-black/50 to-black/90"></div>
+            <div class="absolute top-20 right-20 w-96 h-96 bg-amber-500/20 rounded-full blur-[100px]"></div>
+            <div class="absolute bottom-20 left-20 w-96 h-96 bg-purple-500/20 rounded-full blur-[100px]"></div>
+            <div class="absolute top-1/2 left-1/3 w-96 h-96 bg-red-500/20 rounded-full blur-[100px]"></div>
         </div>
-        
-        <!-- Main Gradient Overlay -->
-        <div class="absolute inset-0 bg-gradient-to-r from-black/95 via-black/85 to-transparent">
-            <!-- Animated Light Effects -->
-            <div class="absolute inset-0">
-                <div class="absolute top-1/4 left-1/4 w-[300px] h-[300px] bg-primary-500/10 rounded-full mix-blend-overlay filter blur-2xl animate-pulse"></div>
-                <div class="absolute bottom-1/4 right-1/4 w-[250px] h-[250px] bg-secondary-500/10 rounded-full mix-blend-overlay filter blur-2xl animate-pulse animation-delay-2000"></div>
-            </div>
-            
-            <!-- Subtle Texture Overlay -->
-            <div class="absolute inset-0 bg-texture opacity-5 mix-blend-overlay"></div>
+
+        <!-- Moving Light Effects -->
+        <div class="absolute inset-0">
+            <div class="absolute top-1/4 left-1/4 w-72 h-72 bg-gradient-to-r from-amber-500/10 to-red-500/10 rounded-full blur-3xl animate-float"></div>
+            <div class="absolute bottom-1/4 right-1/4 w-72 h-72 bg-gradient-to-r from-purple-500/10 to-blue-500/10 rounded-full blur-3xl animate-float-delay"></div>
         </div>
+
+        <!-- Pattern Overlay -->
+        <div class="absolute inset-0 bg-[url('/images/arabic-pattern-gold.svg')] opacity-10 bg-repeat bg-[length:32px_32px]"></div>
+
+        <!-- Vignette -->
+        <div class="absolute inset-0 bg-gradient-radial from-transparent via-black/20 to-black/50"></div>
     </div>
 
-    <!-- Content Container -->
+    <!-- Content -->
     <div class="relative container-custom h-full flex items-center">
-        <div class="max-w-4xl" data-aos="fade-right">
-            <!-- Decorative Line -->
-            <div class="w-24 h-1 bg-primary-500 mb-8"></div>
+        <div class="max-w-2xl" data-aos="fade-right">
+            <!-- Decorative Element -->
+            <div class="flex items-center gap-4 mb-8">
+                <div class="w-12 h-12 rounded-full border-2 border-primary-500/30 flex items-center justify-center">
+                    <div class="w-8 h-8 rounded-full bg-gradient-to-r from-primary-500 to-primary-600"></div>
+                </div>
+                <div class="h-[2px] w-20 bg-gradient-to-r from-primary-500 to-transparent"></div>
+            </div>
+
+            <!-- Welcome Text -->
+            <div class="flex items-center space-x-4 mb-8">
+                <span class="text-2xl text-primary-400 font-arabic">أهلاً وسهلاً</span>
+                <div class="w-px h-6 bg-gradient-to-b from-primary-500/50 to-transparent"></div>
+                <span class="text-sm text-amber-300/80 uppercase tracking-[0.2em]">Welcome</span>
+            </div>
             
-            <!-- Arabic Welcome -->
-            <span class="text-xl text-primary-400 font-arabic mb-4 block">أهلاً وسهلاً</span>
-            
-            <h1 class="text-6xl md:text-7xl lg:text-8xl font-playfair font-bold mb-8 text-white leading-tight">
-                Authentic <span class="text-primary-400">Syrian</span><br/>
-                Culinary Experience
+            <h1 class="text-5xl md:text-6xl lg:text-7xl font-playfair font-bold mb-8 text-white leading-tight">
+                Authentic <br/>
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-primary-500 to-amber-600">Syrian</span> 
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-white via-gray-200 to-gray-400">Cuisine</span>
             </h1>
             
-            <p class="text-xl md:text-2xl text-gray-300 mb-12 leading-relaxed max-w-2xl">
-                Discover the rich flavors and traditions of Damascus cuisine, 
-                where every dish tells a story of heritage and passion
-            </p>
-            
+            <!-- CTA Buttons -->
             <div class="flex flex-col sm:flex-row gap-6">
-                <a href="/book-table" class="btn-primary group">
-                    <span class="relative z-10">Book Your Table</span>
-                    <svg class="w-5 h-5 ml-2 relative z-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <a href="/book-table" 
+                   class="group px-8 py-4 bg-gradient-to-r from-amber-600 via-primary-600 to-amber-600 bg-size-200 bg-pos-0 hover:bg-pos-100 text-white rounded-lg font-medium tracking-wider uppercase text-sm hover:shadow-2xl hover:shadow-primary-600/20 hover:-translate-y-0.5 transition-all duration-300 flex items-center justify-center">
+                    Book Your Table
+                    <svg class="w-5 h-5 ml-2 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
                     </svg>
                 </a>
-                <a href="/menu" class="btn-outline group">
-                    <span class="relative z-10">Explore Menu</span>
-                    <svg class="w-5 h-5 ml-2 relative z-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <a href="/menu" 
+                   class="group px-8 py-4 border-2 border-amber-500/20 text-white rounded-lg font-medium tracking-wider uppercase text-sm hover:border-amber-500/40 hover:bg-white/5 transition-all duration-300 flex items-center justify-center">
+                    View Menu
+                    <svg class="w-5 h-5 ml-2 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
                     </svg>
                 </a>
             </div>
-            
-            <!-- Scroll Indicator -->
-            <div class="absolute bottom-12 left-1/2 transform -translate-x-1/2 flex flex-col items-center animate-bounce">
-                <span class="text-white/60 text-sm uppercase tracking-widest mb-2">Scroll</span>
-                <svg class="w-6 h-6 text-primary-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
-                </svg>
-            </div>
-        </div>
-        
-        <!-- Floating Elements -->
-        <div class="absolute top-1/2 right-10 transform -translate-y-1/2 hidden lg:block">
-            <div class="space-y-8">
-                <!-- Opening Hours -->
-                <div class="bg-white/10 backdrop-blur-md p-6 rounded-lg border border-white/20 text-white">
-                    <h3 class="text-lg font-medium mb-2">Opening Hours</h3>
-                    <p class="text-sm text-gray-300">Tue - Sun: 11:30 AM - 11:00 PM</p>
-                    <p class="text-sm text-primary-400">Closed on Mondays</p>
-                </div>
-                
-                <!-- Quick Contact -->
-                <div class="bg-white/10 backdrop-blur-md p-6 rounded-lg border border-white/20 text-white">
-                    <h3 class="text-lg font-medium mb-2">Reservations</h3>
-                    <a href="tel:+15551234567" class="text-sm text-gray-300 hover:text-primary-400 transition-colors">
-                        +1 (555) 123-4567
-                    </a>
-                </div>
-            </div>
         </div>
     </div>
-</section>
 
-<!-- Featured Section -->
-<section class="py-24 bg-neutral-50">
-    <div class="container mx-auto px-6">
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            @foreach([
-                ['icon' => 'M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z', 'title' => 'Opening Hours', 'text' => 'Tue - Sun: 11:30 AM - 11:00 PM'],
-                ['icon' => 'M21 15.546c-.523 0-1.046.151-1.5.454a2.704 2.704 0 01-3 0 2.704 2.704 0 00-3 0 2.704 2.704 0 01-3 0 2.704 2.704 0 00-3 0 2.701 2.701 0 00-1.5-.454M9 6v2m3-2v2m3-2v2M9 3h.01M12 3h.01M15 3h.01M21 21v-7a2 2 0 00-2-2H5a2 2 0 00-2 2v7h18zm-3-9v-2a2 2 0 00-2-2H8a2 2 0 00-2 2v2h12z', 'title' => 'Fine Dining', 'text' => 'Authentic Syrian Cuisine'],
-                ['icon' => 'M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2', 'title' => 'Reservations', 'text' => 'Book Your Experience']
-            ] as $feature)
-            <div class="group p-8 bg-white shadow-md hover:shadow-xl transition-all duration-500" data-aos="fade-up">
-                <div class="w-12 h-12 mb-6 rounded-full bg-primary-100 flex items-center justify-center group-hover:bg-primary-600 transition-colors duration-500">
-                    <svg class="w-5 h-5 text-primary-600 group-hover:text-white transition-colors duration-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="{{ $feature['icon'] }}"></path>
-                    </svg>
-                </div>
-                <h3 class="text-xl font-bold mb-3">{{ $feature['title'] }}</h3>
-                <p class="text-neutral-600">{{ $feature['text'] }}</p>
-            </div>
-            @endforeach
-        </div>
-    </div>
-</section>
-
-<!-- About Section -->
-<section class="relative py-32">
-    <div class="container mx-auto px-6">
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
-            <div class="relative" data-aos="fade-right">
-                <img src="/images/chef-cooking.jpg" alt="Chef Preparing Dish" class="w-full h-[600px] object-cover">
-                <div class="absolute -bottom-8 -right-8 bg-white p-8 shadow-xl">
-                    <p class="text-3xl font-playfair font-bold text-gold-600">25+</p>
-                    <p class="text-neutral-600">Years of Excellence</p>
-                </div>
-            </div>
-            <div class="space-y-6" data-aos="fade-left">
-                <span class="section-subtitle">Our Story</span>
-                <h2 class="section-title">A Legacy of Culinary Excellence</h2>
-                <p class="text-neutral-600 leading-relaxed">
-                    For over two decades, we've been crafting unforgettable dining experiences that combine traditional 
-                    techniques with modern innovation. Our commitment to excellence is reflected in every dish we serve.
-                </p>
-                <div class="grid grid-cols-2 gap-8 mt-12">
-                    <div class="text-center p-6 bg-neutral-50">
-                        <p class="text-3xl font-bold text-gold-600 mb-2">4.9</p>
-                        <p class="text-sm text-neutral-600 uppercase tracking-wider">Customer Rating</p>
-                    </div>
-                    <div class="text-center p-6 bg-neutral-50">
-                        <p class="text-3xl font-bold text-gold-600 mb-2">150+</p>
-                        <p class="text-sm text-neutral-600 uppercase tracking-wider">Wine Selection</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Menu Preview -->
-<section class="py-24 bg-neutral-900 text-white">
-    <div class="container-custom">
-        <div class="text-center mb-16" data-aos="fade-up">
-            <span class="section-subtitle">Our Specialties</span>
-            <h2 class="section-title">Signature Dishes</h2>
-        </div>
-        
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            @foreach([
-                [
-                    'name' => 'Wagyu A5 Ribeye',
-                    'price' => '$120',
-                    'description' => 'Japanese A5 Wagyu with truffle butter and seasonal vegetables',
-                    'image' => 'wagyu.jpg'
-                ],
-                [
-                    'name' => 'Maine Lobster',
-                    'price' => '$85',
-                    'description' => 'Poached Maine lobster with caviar and champagne sauce',
-                    'image' => 'lobster.jpg'
-                ],
-                [
-                    'name' => 'Duck à l\'Orange',
-                    'price' => '$65',
-                    'description' => 'Classic French duck with orange glaze and wild mushrooms',
-                    'image' => 'duck.jpg'
-                ]
-            ] as $dish)
-                <div class="group relative overflow-hidden rounded-2xl" data-aos="fade-up">
-                    <div class="aspect-w-16 aspect-h-12">
-                        <img src="/images/dishes/{{ $dish['image'] }}" 
-                             alt="{{ $dish['name'] }}" 
-                             class="w-full h-full object-cover transform group-hover:scale-110 transition duration-700">
-                    </div>
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500">
-                        <div class="absolute bottom-0 left-0 right-0 p-6">
-                            <div class="flex justify-between items-center mb-2">
-                                <h3 class="text-xl font-bold">{{ $dish['name'] }}</h3>
-                                <span class="text-gold-400">{{ $dish['price'] }}</span>
-                            </div>
-                            <p class="text-gray-300">{{ $dish['description'] }}</p>
-                        </div>
-                    </div>
-                </div>
-            @endforeach
-        </div>
-        
-        <div class="text-center mt-12">
-            <a href="/menu" class="btn-primary">
-                View Full Menu
-                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-                </svg>
-            </a>
-        </div>
-    </div>
-</section>
-
-<!-- Testimonials -->
-<section class="py-24 bg-neutral-50">
-    <div class="container mx-auto px-6">
-        <div class="text-center mb-16" data-aos="fade-up">
-            <span class="section-subtitle">Testimonials</span>
-            <h2 class="section-title">What Our Guests Say</h2>
-        </div>
-        
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            @foreach([
-                ['text' => 'An unforgettable dining experience. The attention to detail and service is impeccable.', 'author' => 'Emily Thompson', 'role' => 'Food Critic'],
-                ['text' => 'The wine pairing suggestions were perfect. A truly memorable evening.', 'author' => 'Michael Chen', 'role' => 'Wine Enthusiast'],
-                ['text' => 'Every dish was a masterpiece. The ambiance is perfect for special occasions.', 'author' => 'Sarah Williams', 'role' => 'Regular Guest']
-            ] as $testimonial)
-            <div class="bg-white p-8 shadow-lg" data-aos="fade-up">
-                <svg class="w-10 h-10 text-gold-400 mb-6" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
-                </svg>
-                <p class="text-neutral-600 mb-6 leading-relaxed">{{ $testimonial['text'] }}</p>
-                <div class="flex items-center">
-                    <div class="ml-4">
-                        <p class="font-semibold">{{ $testimonial['author'] }}</p>
-                        <p class="text-sm text-neutral-500">{{ $testimonial['role'] }}</p>
-                    </div>
-                </div>
-            </div>
-            @endforeach
-        </div>
-    </div>
-</section>
-
-<!-- CTA Section -->
-<section class="relative py-24 bg-cover bg-center" style="background-image: url('/images/restaurant-interior.jpg')">
-    <div class="absolute inset-0 bg-black/70"></div>
-    <div class="container mx-auto px-6 relative">
-        <div class="max-w-3xl mx-auto text-center text-white" data-aos="fade-up">
-            <h2 class="text-4xl font-bold mb-6">Experience Fine Dining</h2>
-            <p class="text-xl mb-8 text-gray-300">Reserve your table today and embark on a culinary journey</p>
-            <a href="/reservations" class="btn-primary">Make a Reservation</a>
-        </div>
+    <!-- Floating Elements -->
+    <div class="absolute bottom-10 right-10 hidden lg:flex items-center gap-6">
+        <div class="w-2 h-2 rounded-full bg-primary-500 animate-pulse"></div>
+        <div class="w-2 h-2 rounded-full bg-amber-500 animate-pulse delay-75"></div>
+        <div class="w-2 h-2 rounded-full bg-secondary-500 animate-pulse delay-150"></div>
     </div>
 </section>
 @endsection
 
 @push('styles')
-<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-@endpush
+<style>
+.bg-size-200 {
+    background-size: 200% 100%;
+}
+.bg-pos-0 {
+    background-position: 0% 0%;
+}
+.bg-pos-100 {
+    background-position: 100% 0%;
+}
 
-@push('scripts')
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-<script>
-    AOS.init({
-        duration: 1000,
-        once: true,
-    });
-</script>
+/* Add subtle noise texture */
+.bg-noise {
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%' height='100%' filter='url(%23noise)'/%3E%3C/svg%3E");
+    opacity: 0.05;
+    mix-blend-mode: overlay;
+}
+
+.bg-radial-vignette {
+    background: radial-gradient(
+        circle at center,
+        transparent 0%,
+        rgba(0, 0, 0, 0.2) 60%,
+        rgba(0, 0, 0, 0.4) 100%
+    );
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 0.6; }
+}
+
+.animate-pulse {
+    animation: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.delay-700 {
+    animation-delay: 700ms;
+}
+
+.delay-1000 {
+    animation-delay: 1000ms;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0) scale(1);
+        opacity: 0.3;
+    }
+    50% {
+        transform: translateY(-20px) scale(1.1);
+        opacity: 0.5;
+    }
+}
+
+.animate-float {
+    animation: float 8s ease-in-out infinite;
+}
+
+.animate-float-delay {
+    animation: float 8s ease-in-out infinite;
+    animation-delay: -4s;
+}
+
+.bg-gradient-radial {
+    background: radial-gradient(circle at center, var(--tw-gradient-stops));
+}
+</style>
 @endpush 
