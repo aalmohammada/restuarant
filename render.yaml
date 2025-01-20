@@ -1,0 +1,42 @@
+services:
+  - type: web
+    name: damascino-restaurant
+    env: php
+    plan: free
+    buildCommand: composer install && npm install && npm run build
+    startCommand: php artisan serve --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: APP_NAME
+        value: Restaurant
+      - key: APP_ENV
+        value: production
+      - key: APP_DEBUG
+        value: false
+      - key: APP_KEY
+        sync: false
+      - key: DB_CONNECTION
+        value: pgsql
+      - key: DB_HOST
+        fromDatabase:
+          name: damascino_db
+          property: host
+      - key: DB_PORT
+        fromDatabase:
+          name: damascino_db
+          property: port
+      - key: DB_DATABASE
+        fromDatabase:
+          name: damascino_db
+          property: database
+      - key: DB_USERNAME
+        fromDatabase:
+          name: damascino_db
+          property: user
+      - key: DB_PASSWORD
+        fromDatabase:
+          name: damascino_db
+          property: password
+
+databases:
+  - name: damascino_db
+    plan: free 
