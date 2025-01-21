@@ -3,6 +3,7 @@ services:
     name: damascino-restaurant
     env: php
     plan: free
+    region: frankfurt
     buildCommand: |
       composer install --no-dev --optimize-autoloader
       php artisan config:cache
@@ -10,12 +11,9 @@ services:
       php artisan view:cache
       php artisan storage:link
       chmod -R 777 storage bootstrap/cache
-    startCommand: |
-      php artisan migrate --force
-      php -S 0.0.0.0:10000 -t public
+      mkdir -p public/build
+    startCommand: php artisan serve --host 0.0.0.0 --port $PORT
     envVars:
-      - key: PORT
-        value: "10000"
       - key: APP_NAME
         value: Restaurant
       - key: APP_ENV
@@ -28,6 +26,10 @@ services:
         generateValue: true
       - key: ASSET_URL
         value: https://damascino-restaurant.onrender.com
+      - key: LOG_CHANNEL
+        value: stderr
+      - key: LOG_LEVEL
+        value: debug
       - key: DB_CONNECTION
         value: pgsql
       - key: DB_HOST
@@ -50,12 +52,20 @@ services:
         fromDatabase:
           name: damascino_db
           property: password
+    autoDeploy: false
     healthCheckPath: /
-    disk:
-      name: sqlite 
-      mountPath: /opt/render/project/src/storage/
-      sizeGB: 1
+    buildFilter:
+      paths:
+        - app/**/*.php
+        - bootstrap/**/*.php
+        - config/**/*.php
+        - database/**/*.php
+        - public/**/*
+        - resources/**/*.php
+        - routes/**/*.php
+        - composer.*
 
 databases:
   - name: damascino_db
+    plan: free
     ipAllowList: [] 
