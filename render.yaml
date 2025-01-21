@@ -7,7 +7,8 @@ services:
       php artisan config:cache
       php artisan route:cache
       php artisan view:cache
-    startCommand: php artisan serve --host 0.0.0.0 --port $PORT
+      php artisan storage:link
+    startCommand: heroku-php-apache2 public/
     envVars:
       - key: APP_NAME
         value: Restaurant
@@ -19,6 +20,8 @@ services:
         value: https://damascino-restaurant.onrender.com
       - key: APP_KEY
         generateValue: true
+      - key: ASSET_URL
+        value: https://damascino-restaurant.onrender.com
       - key: DB_CONNECTION
         value: pgsql
       - key: DB_HOST
@@ -41,6 +44,11 @@ services:
         fromDatabase:
           name: damascino_db
           property: password
+    healthCheckPath: /
+    disk:
+      name: sqlite 
+      mountPath: /opt/render/project/src/storage/
+      sizeGB: 1
 
 databases:
   - name: damascino_db
