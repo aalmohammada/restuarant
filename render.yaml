@@ -2,14 +2,17 @@ services:
   - type: web
     name: damascino-restaurant
     env: php
-    runtime: php
+    plan: free
     buildCommand: |
       composer install --no-dev --optimize-autoloader
       php artisan config:cache
       php artisan route:cache
       php artisan view:cache
       php artisan storage:link
-    startCommand: vendor/bin/heroku-php-apache2 public/
+      chmod -R 777 storage bootstrap/cache
+    startCommand: |
+      php artisan migrate --force
+      php -S 0.0.0.0:$PORT -t public
     envVars:
       - key: APP_NAME
         value: Restaurant
