@@ -12,8 +12,10 @@ services:
       chmod -R 777 storage bootstrap/cache
     startCommand: |
       php artisan migrate --force
-      php -S 0.0.0.0:$PORT -t public
+      php -S 0.0.0.0:10000 -t public
     envVars:
+      - key: PORT
+        value: "10000"
       - key: APP_NAME
         value: Restaurant
       - key: APP_ENV
