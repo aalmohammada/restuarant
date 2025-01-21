@@ -12,6 +12,11 @@ export default defineConfig({
         outDir: 'public/build',
         assetsDir: '',
         manifest: true,
+        rollupOptions: {
+            output: {
+                manualChunks: undefined,
+            },
+        },
     },
     resolve: {
         alias: {
