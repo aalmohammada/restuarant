@@ -3,18 +3,12 @@ services:
     name: damascino-restaurant
     env: php
     buildCommand: |
-      curl -fsSL https://deb.nodesource.com/setup_18.x | bash -
-      apt-get install -y nodejs
-      npm install -g npm@latest
-      composer install --no-dev
-      npm install
-      npm run build
+      composer install --no-dev --optimize-autoloader
+      php artisan config:cache
+      php artisan route:cache
+      php artisan view:cache
     startCommand: php artisan serve --host 0.0.0.0 --port $PORT
     envVars:
-      - key: NODE_VERSION
-        value: 18.x
-      - key: NODE_ENV
-        value: production
       - key: APP_NAME
         value: Restaurant
       - key: APP_ENV
