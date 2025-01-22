@@ -36,7 +36,7 @@ php artisan route:clear
 # Generate static files
 php artisan view:cache
 
-# Create a PHP script to generate the static files
+# Create a PHP script to generate the static files with correct asset paths
 @'
 <?php
 require __DIR__.'/vendor/autoload.php';
@@ -47,6 +47,18 @@ $response = $kernel->handle($request = Illuminate\Http\Request::capture());
 function generatePage($view, $path) {
     try {
         $content = view($view)->render();
+        // Fix asset paths - remove http://: prefix and make paths relative
+        $content = str_replace('href="http://:/build/', 'href="../build/', $content);
+        $content = str_replace('src="http://:/build/', 'src="../build/', $content);
+        $content = str_replace('href="http://:/images/', 'href="../images/', $content);
+        $content = str_replace('src="http://:/images/', 'src="../images/', $content);
+        
+        // Fix navigation links
+        $content = str_replace('href="/"', 'href="../"', $content);
+        $content = str_replace('href="/menu"', 'href="../menu"', $content);
+        $content = str_replace('href="/contact"', 'href="../contact"', $content);
+        $content = str_replace('href="/book-table"', 'href="../book-table"', $content);
+        
         file_put_contents($path, $content);
         echo "Generated $path successfully\n";
     } catch (Exception $e) {
