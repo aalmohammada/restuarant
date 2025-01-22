@@ -2,15 +2,15 @@ services:
   - type: web
     name: damascino-restaurant
     env: php
-    runtime: php
     buildCommand: |
+      curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
       composer install --no-dev --optimize-autoloader
       php artisan config:cache
       php artisan route:cache
       php artisan view:cache
       php artisan storage:link
       chmod -R 777 storage bootstrap/cache
-    startCommand: vendor/bin/heroku-php-apache2 public/
+    startCommand: php -S 0.0.0.0:$PORT -t public
     envVars:
       - key: APP_NAME
         value: Restaurant
