@@ -4,20 +4,24 @@ services:
     env: php
     buildCommand: |
       curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
-      composer install --no-dev --optimize-autoloader
+      composer install --no-dev --optimize-autoloader --no-scripts
+      php artisan key:generate
       php artisan config:cache
       php artisan route:cache
       php artisan view:cache
       php artisan storage:link
       chmod -R 777 storage bootstrap/cache
-    startCommand: php -S 0.0.0.0:$PORT -t public
+      chmod -R 777 public
+    startCommand: |
+      php artisan migrate --force
+      php -S 0.0.0.0:$PORT -t public
     envVars:
       - key: APP_NAME
         value: Restaurant
       - key: APP_ENV
         value: production
       - key: APP_DEBUG
-        value: false
+        value: true
       - key: APP_URL
         value: https://damascino-restaurant.onrender.com
       - key: APP_KEY
