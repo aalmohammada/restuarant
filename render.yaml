@@ -2,8 +2,7 @@ services:
   - type: web
     name: damascino-restaurant
     env: php
-    plan: free
-    region: frankfurt
+    runtime: php
     buildCommand: |
       composer install --no-dev --optimize-autoloader
       php artisan config:cache
@@ -11,8 +10,7 @@ services:
       php artisan view:cache
       php artisan storage:link
       chmod -R 777 storage bootstrap/cache
-      mkdir -p public/build
-    startCommand: php artisan serve --host 0.0.0.0 --port $PORT
+    startCommand: vendor/bin/heroku-php-apache2 public/
     envVars:
       - key: APP_NAME
         value: Restaurant
