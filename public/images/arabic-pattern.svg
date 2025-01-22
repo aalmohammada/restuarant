@@ -1,8 +1,0 @@
-<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <pattern id="pattern" x="0" y="0" width="64" height="64" patternUnits="userSpaceOnUse">
-        <path d="M32 0C14.3269 0 0 14.3269 0 32C0 49.6731 14.3269 64 32 64C49.6731 64 64 49.6731 64 32C64 14.3269 49.6731 0 32 0ZM32 56C18.7452 56 8 45.2548 8 32C8 18.7452 18.7452 8 32 8C45.2548 8 56 18.7452 56 32C56 45.2548 45.2548 56 32 56Z" fill="#D49D3B" fill-opacity="0.1"/>
-        <path d="M32 16C23.1634 16 16 23.1634 16 32C16 40.8366 23.1634 48 32 48C40.8366 48 48 40.8366 48 32C48 23.1634 40.8366 16 32 16Z" stroke="#D49D3B" stroke-opacity="0.2"/>
-        <path d="M32 24C27.5817 24 24 27.5817 24 32C24 36.4183 27.5817 40 32 40C36.4183 40 40 36.4183 40 32C40 27.5817 36.4183 24 32 24Z" stroke="#D49D3B" stroke-opacity="0.2"/>
-    </pattern>
-    <rect width="64" height="64" fill="url(#pattern)"/>
-</svg> 
