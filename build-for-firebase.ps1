@@ -9,12 +9,14 @@ New-Item -ItemType Directory -Path "public_html/book-table" -Force
 New-Item -ItemType Directory -Path "public_html/images" -Force
 New-Item -ItemType Directory -Path "public_html/build" -Force
 
-# Set proper permissions for Laravel directories
-$acl = Get-Acl "storage"
-$accessRule = New-Object System.Security.AccessControl.FileSystemAccessRule("Everyone", "FullControl", "ContainerInherit,ObjectInherit", "None", "Allow")
-$acl.SetAccessRule($accessRule)
-Set-Acl "storage" $acl
-Set-Acl "bootstrap/cache" $acl
+# Set proper permissions for Laravel directories (using icacls instead)
+try {
+    icacls "storage" /grant "Users:(OI)(CI)F" /T
+    icacls "bootstrap/cache" /grant "Users:(OI)(CI)F" /T
+    Write-Host "Permissions set successfully" -ForegroundColor Green
+} catch {
+    Write-Host "Warning: Could not set permissions, but continuing build..." -ForegroundColor Yellow
+}
 
 # Install dependencies
 composer install --optimize-autoloader --no-dev --no-scripts
