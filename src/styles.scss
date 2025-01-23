@@ -1,0 +1,38 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import '@fortawesome/fontawesome-free/css/all.css';
+
+@layer base {
+  body {
+    @apply bg-[#0A0F1E] text-gray-200 font-sans antialiased;
+  }
+}
+
+@layer components {
+  .nav-link {
+    @apply relative text-gray-300 hover:text-amber-500 transition-colors;
+    
+    &::after {
+      @apply absolute bottom-0 left-0 w-full h-0.5 bg-amber-500 transform scale-x-0 transition-transform;
+      content: '';
+    }
+    
+    &:hover::after {
+      @apply scale-x-100;
+    }
+  }
+}
+
+.font-playfair {
+  font-family: 'Playfair Display', serif;
+}
+
+.logo-container {
+  img {
+    filter: brightness(0) invert(1);
+    &.amber {
+      filter: invert(70%) sepia(50%) saturate(500%) hue-rotate(346deg) brightness(100%) contrast(102%);
+    }
+  }
+} 

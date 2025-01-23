@@ -1,16 +1,16 @@
 const defaultTheme = require('tailwindcss/defaultTheme')
 
+/** @type {import('tailwindcss').Config} */
 module.exports = {
     content: [
-        "./resources/**/*.blade.php",
-        "./resources/**/*.js",
-        "./resources/**/*.vue",
+        "./src/**/*.{html,ts,svg}",
     ],
     theme: {
         extend: {
             fontFamily: {
                 sans: ['Montserrat', ...defaultTheme.fontFamily.sans],
                 playfair: ['"Playfair Display"', ...defaultTheme.fontFamily.serif],
+                arabic: ['"Amiri"', 'serif'],
             },
             colors: {
                 primary: {
@@ -40,19 +40,29 @@ module.exports = {
                 neutral: {
                     850: '#1f2937',
                 },
+                amber: {
+                    500: '#F59E0B',
+                    600: '#D97706',
+                }
             },
             backgroundImage: {
                 'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
                 'gradient-conic': 'conic-gradient(var(--tw-gradient-stops))',
-                'texture': "url('/images/texture.png')",
+                'texture': "url('/assets/images/texture.png')",
+                'pattern': "url('/assets/patterns/arabic-pattern.svg')",
             },
             boxShadow: {
                 'warm': '0 4px 14px 0 rgba(212, 157, 59, 0.39)',
             },
             animation: {
-                'fade-in': 'fadeIn 0.6s ease-out forwards',
-                'slide-up': 'slideUp 0.6s ease-out forwards',
-                'scale': 'scale 0.3s ease-in-out',
+                'bounce-slow': 'bounce 3s infinite',
+                'float': 'float 6s ease-in-out infinite',
+            },
+            keyframes: {
+                float: {
+                    '0%, 100%': { transform: 'translateY(0)' },
+                    '50%': { transform: 'translateY(-20px)' },
+                },
             },
         },
     },

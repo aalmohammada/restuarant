@@ -1,0 +1,82 @@
+<!-- Hero Section -->
+<section class="hero-section">
+  <img src="/assets/images/hero-bg.jpg" alt="Restaurant Interior" class="hero-background">
+  <div class="hero-content" @fadeInUp>
+    <h1 class="text-5xl md:text-7xl font-playfair font-bold text-white mb-6">
+      Experience <span class="text-amber-500">Syrian</span> Cuisine
+    </h1>
+    <p class="text-xl text-gray-200 mb-10 max-w-2xl mx-auto">
+      Discover authentic flavors and traditional recipes in an elegant atmosphere
+    </p>
+    <div class="flex flex-col sm:flex-row justify-center gap-4">
+      <a href="/menu" 
+         class="px-8 py-4 bg-amber-500 text-white rounded-lg hover:bg-amber-600 
+                transition-colors transform hover:-translate-y-0.5">
+        View Menu
+      </a>
+      <a href="/book-table" 
+         class="px-8 py-4 border-2 border-white/30 text-white rounded-lg 
+                hover:bg-white/10 transition-all">
+        Book a Table
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Specialties Section -->
+<section class="py-24 bg-[#0A0F1E]">
+  <div class="container mx-auto">
+    <h2 class="text-3xl md:text-4xl font-playfair font-bold text-center text-white mb-16">
+      Our <span class="text-amber-500">Specialties</span>
+    </h2>
+    <div class="menu-preview">
+      <div *ngFor="let item of specialties; let i = index" 
+           class="specialty-card" 
+           @fadeInUp
+           [style.animation-delay]="i * 200 + 'ms'">
+        <h3 class="text-xl font-bold text-amber-500 mb-2">{{ item.name }}</h3>
+        <p class="text-gray-400 mb-4">{{ item.description }}</p>
+        <span class="text-white font-semibold">{{ item.price }}</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Hours Section -->
+<section class="hours-section">
+  <div class="container mx-auto px-4">
+    <div class="max-w-xl mx-auto relative z-10">
+      <h2 class="text-3xl font-playfair font-bold text-center text-white mb-12">
+        Opening Hours
+      </h2>
+      <div class="space-y-6">
+        <div *ngFor="let schedule of hours" 
+             class="flex justify-between items-center py-4 border-b border-amber-500/20">
+          <span class="text-gray-400">{{ schedule.day }}</span>
+          <span [class]="schedule.hours === 'Closed' ? 'text-amber-500' : 'text-white'">
+            {{ schedule.hours }}
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Features Section -->
+<section class="py-24 bg-[#0A0F1E]">
+  <div class="container mx-auto px-4">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+      <div class="text-center" *ngFor="let i of [1,2,3]" @fadeInUp>
+        <div class="w-20 h-20 mx-auto mb-6 rounded-full bg-amber-500/10 flex items-center justify-center">
+          <i [class]="'fas fa-' + ['utensils', 'leaf', 'award'][i-1] + ' text-2xl text-amber-500'"></i>
+        </div>
+        <h3 class="text-xl font-bold text-white mb-4">
+          {{ ['Fresh Ingredients', 'Traditional Recipes', 'Expert Chefs'][i-1] }}
+        </h3>
+        <p class="text-gray-400">
+          {{ ['Quality ingredients for authentic flavors', 'Time-honored Syrian recipes', 'Skilled in Syrian cuisine'][i-1] }}
+        </p>
+      </div>
+    </div>
+  </div>
+</section> 

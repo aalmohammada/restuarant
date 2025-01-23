@@ -1,0 +1,56 @@
+.hero-section {
+  @apply relative min-h-screen flex items-center justify-center overflow-hidden;
+  
+  &::before {
+    @apply absolute inset-0 bg-black/50 z-10;
+    content: '';
+  }
+
+  .hero-content {
+    @apply relative z-20 text-center max-w-4xl mx-auto px-4;
+  }
+
+  .hero-background {
+    @apply absolute inset-0 w-full h-full object-cover;
+    animation: zoomInOut 20s infinite alternate;
+  }
+}
+
+.specialty-card {
+  @apply bg-[#0A0F1E]/80 backdrop-blur-sm p-6 rounded-lg border border-amber-500/10 
+         hover:border-amber-500/30 transition-all duration-300 transform hover:-translate-y-1;
+  
+  &:hover {
+    box-shadow: 0 0 30px rgba(251, 191, 36, 0.1);
+  }
+}
+
+.menu-preview {
+  @apply grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto px-4;
+}
+
+.hours-section {
+  @apply relative py-24 overflow-hidden;
+  background: linear-gradient(to right, #0A0F1E, #1A1F2E);
+  
+  &::before {
+    @apply absolute inset-0 opacity-5;
+    content: '';
+    background-image: url('/assets/images/pattern.svg');
+    animation: float 10s infinite alternate;
+  }
+}
+
+@keyframes zoomInOut {
+  0% { transform: scale(1); }
+  100% { transform: scale(1.1); }
+}
+
+@keyframes float {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-20px); }
+}
+
+.parallax {
+  transition: transform 0.1s ease-out;
+} 
